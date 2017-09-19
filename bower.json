@@ -1,0 +1,20 @@
+{
+  "name": "fountain-inject",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "^1.6.2",
+    "angular-ui-router": "1.0.0-beta.3",
+    "angular-material": "^1.1.5",
+    "angular-resource": "^1.6.6",
+    "angular-animate": "^1.6.6",
+    "angular-translate": "^2.15.2",
+    "jquery": "^3.2.1",
+    "angular-translate-loader-partial": "^2.15.2",
+    "angular-translate-storage-local": "^2.15.2",
+    "angular-ui-sortable": "^0.17.2",
+    "angular-material-icons": "^0.7.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.6.2"
+  }
+}
