@@ -1,0 +1,154 @@
+<md-dialog class="" ng-cloak aria-label="Questionnaire" style="width: 100%;height: 100%;">
+  <form ng-cloak name="createForm">
+    <md-toolbar>
+      <div class="md-toolbar-tools" style="background-color: orangered;">
+        <h2>{{vm.allQuestionsList[0].questionnaire | uppercase}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.cancel()" aria-label="Close dialog" translate
+                   translate-attr-aria-label="generic.close">
+          <ng-md-icon icon="close"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content >
+      <div  class="row arrange2 "
+
+            ng-repeat="question in vm.allQuestionsList | orderBy : 'orderNumber'"
+            ng-click="vm.turnActive(question)"
+            ng-class="{'activated_div' : vm.isSelected(question)}"  >
+
+
+        <div   ng-if="question.type=='rating'">
+          <div  class="row " layout-margin="40px" >
+
+            <h2 class="rat-div">{{question.question.text}}<span ng-show="question.question.required" class="req-sign">*</span>
+            <md-icon md-icon="icon-information" class="ng-scope ng-isolate-scope icon-information material-icons" aria-hidden="true">
+
+              <md-tooltip md-direction="right"><span style="width: 40px; word-wrap: break-word;" translate="Select level of satisfaction. 1 for the lowest and 10 for the highest"></span></md-tooltip>
+            </md-icon>
+
+
+
+
+            </h2>
+            <!--<md-select class="margins" placeholder="{{'question.range'|translate}}" ng-model="question.question.range" >-->
+            <!--<md-option ng-value="range.value" ng-repeat="range in vm.ranges">{{range.range}}</md-option>-->
+            <!--</md-select>-->
+
+
+                  <!-- List of radio buttons will be shown here to choose satisfaction level-->
+
+                  <md-radio-group layout="row" ng-model="question.question.answer" ng-required="question.question.required" >
+                    <span class="rating-label">{{question.question.label_1}}</span>
+                    <span   ng-class="$first ? '' : 'rad-pad3'" ng-repeat="i in [1,2,3,4,5,6,7,8,9,10]">
+                        <span ng-class="$last ? '' : 'rad-pad2'">{{i}}</span>
+                      <md-radio-button  ng-value="{{i}}" >
+
+
+                      </md-radio-button>
+                      </span>
+                    <span class="rating-label2" >{{question.question.label_2}}</span>
+
+                  </md-radio-group>
+
+
+
+          </div>
+        </div>
+        <div ng-if="question.type =='audio'" >
+          <div class="row"layout-margin="40px">
+            <h2>{{question.question.text}}<span ng-show="question.question.required" class="req-sign">*</span></h2>
+            <md-select style="margin-bottom: 20px;" placeholder="{{'question.prompt'|translate}}" ng-model="question.question.fileName"  >
+              <md-option  ng-value="file" ng-repeat="file in vm.files">{{file}}</md-option>
+            </md-select>
+          </div>
+        </div>
+        <div ng-if="question.type =='text'" >
+          <div class="row" layout-margin="40px">
+
+            <h2 class="rat-div">{{question.question.text}}<span ng-show="question.question.required" class="req-sign">*</span>
+              <md-icon md-icon="icon-information" class="ng-scope ng-isolate-scope icon-information material-icons" aria-hidden="true">
+
+                <md-tooltip md-direction="right"><span style="width: 40px; word-wrap: break-word;" translate="Write a short answer for this question"></span></md-tooltip>
+              </md-icon>
+            </h2>
+
+            <md-input-container class="md-block" flex="60" md-no-float flex-gt-sm >
+              <textarea  md-maxlength="200" rows="2" ng-required="question.question.required" name="questionText_{{$index + 1}}" ng-model="question.question.answer" placeholder="{{'question.answerHere'|translate}}" >
+             </textarea>
+              <div ng-messages="createForm['questionText_'+($index + 1)].$error"
+                   role="alert">
+
+
+                <div  ng-message="required" class="help-block">
+                  <span translate="data.cannot_null" translate-values="{name:'{{'question.answer'|translate}}'}"> </span>
+                </div>
+              </div>
+            </md-input-container>
+          </div>
+        </div>
+        <div  ng-if="question.type =='dropDown'"   >
+          <div class="row" layout-margin="40px">
+            <h2>{{question.question.text}}<span ng-show="question.question.required" class="req-sign">*</span></h2>
+            <md-select style="margin-bottom: 20px;" placeholder="{{'question.selectOption'|translate}}" ng-model="question.question.answer"  flex="50" >
+
+              <md-option  ng-value="option.optionText" ng-repeat="option in question.question.options">{{option.optionText}}</md-option>
+
+
+            </md-select>
+
+
+
+          </div>
+        </div>
+        <div  ng-if="question.type =='mcq'"   >
+          <div class="row" layout-margin="40px">
+            <h2>{{question.question.text}}<span ng-show="question.question.required" class="req-sign">*</span>
+              <md-icon md-icon="icon-information" class="ng-scope ng-isolate-scope icon-information material-icons" aria-hidden="true">
+
+                <md-tooltip md-direction="right"><span style="width: 40px; word-wrap: break-word;" translate="Select any one of the options given below "></span></md-tooltip>
+              </md-icon>
+            </h2>
+            <md-radio-group ng-model="question.question.answer" ng-required="question.question.required" >
+
+
+                <md-radio-button ng-repeat="option in question.question.options" class="rad-pad"  ng-value="option.optionId">
+                 {{option.optionText}} <br/>
+                </md-radio-button>
+
+            </md-radio-group>
+
+          </div>
+        </div>
+        <div  ng-if="question.type =='checkBox'"   >
+          <div class="row" layout-margin="40px">
+            <h2>{{question.question.text}}<span ng-show="question.question.required" class="req-sign">*</span>
+              <md-icon md-icon="icon-information" class="ng-scope ng-isolate-scope icon-information material-icons" aria-hidden="true">
+
+                <md-tooltip md-direction="right"><span style="width: 40px; word-wrap: break-word;" translate="Select options of your interest "></span></md-tooltip>
+              </md-icon>
+            </h2>
+            <div ng-repeat="option in question.question.options" flex="50">
+              <md-checkbox ng-model="question.question.answer[option.optionText]" ng-value="option.optionText">
+                {{ option.optionText }}
+              </md-checkbox>
+              </div>
+
+
+          </div>
+        </div>
+
+      </div>
+      <!--<div>{{vm.multipleAnswers | json}}</div>-->
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button class="md-raised" ng-disabled="createForm.$invalid" ng-click="vm.submitQuestionnaireResponse()" md-autofocus>
+        Submit Response
+      </md-button>
+      <span flex></span>
+
+    </md-dialog-actions>
+  </form>
+</md-dialog>
