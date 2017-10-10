@@ -1,6 +1,6 @@
 # formBuilder
 
-* How to run the project
+#How to run the project
   * Clone the project
   * Run `npm install` to install depenndencies
   * Run `bower install` to resolve required dependencies
