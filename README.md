@@ -1,5 +1,13 @@
 # formBuilder
 
+* How to run the project
+  * Clone the project
+  * Run `npm install` to install depenndencies
+  * Run `bower install` to resolve required dependencies
+  * If everything goes good
+    * Run `npm run serve` to run the application
+    * Hit `localhost:3000` in browser to see the project running
+
 This application is built using reference implementation of Google Material (Angular Materials). 
 
  * Adding New Question
