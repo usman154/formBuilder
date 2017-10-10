@@ -115,13 +115,25 @@ angular
     }
     function addMoreOptions(index){
       vm.isSaved = true;
+	  console.log("running2");
       vm.allQuestionsList[index].question.options.push({"optionId" : "option_"+(vm.allQuestionsList[index].question.options.length +1) , "optionText":"option_"+(vm.allQuestionsList[index].question.options.length +1)});
 
 
 
     }
     function deleteQuestion(question){
-     }
+      
+         
+          
+          var index = vm.allQuestionsList.indexOf(question);
+          vm.allQuestionsList.splice(index, 1);
+          vm.questionnaireList[vm.index].splice(index,1);
+           
+
+          //utilCustom.toaster($filter('translate')('question.item') + ' ' + $filter('translate')('question.deleted'));
+         
+      
+    }
     function removeOption(indexx,option){
       var index= vm.allQuestionsList[indexx].question.options.indexOf(option);
       vm.allQuestionsList[indexx].question.options.splice(index,1);

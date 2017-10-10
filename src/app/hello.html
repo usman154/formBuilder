@@ -1,17 +1,10 @@
-<div  class="side-nav" layout="column" flex="80" style="overflow: hidden">
-
-  <div class="top-bg md-accent-bg"></div>
-  <div class="header " layout="column" layout-align="space-between">
-
-      <div layout-align="space-between center" layout="row" class="md-toolbar-tools">
-        <span class="title " style="margin-left: -3%">{{$ctrl.createOrEdit == 'edit'?'generic.update':'generic.create'|translate}}</span>
-
-        <span class="adjust">
+  <md-toolbar class="md-warn" style="height: 0;">
+         
           <md-fab-speed-dial  ng-hide="$ctrl.hidden" md-direction="right" md-open="$ctrl.isOpen"
                               class="md-scale fabIcon md-fab-top-left" ng-class="{ 'md-hover-full': $ctrl.hover }"
-                              ng-mouseenter="$ctrl.isOpen=true" ng-mouseleave="$ctrl.isOpen=false" style="padding-top: 2%; margin-left: -2%;">
+                              ng-mouseenter="$ctrl.isOpen=true" ng-mouseleave="$ctrl.isOpen=false"  >
             <md-fab-trigger>
-              <md-button class="md-fab md-warn" aria-label="Add Question">
+              <md-button class="md-fab md-warn" aria-label="Add Question"; style="background-color: orangered;">
                 <md-tooltip><span translate="question.question" transalte-values="{name:'{{'question.question'|translate}}'}"></span></md-tooltip>
                 <ng-md-icon icon="list"></ng-md-icon>
               </md-button>
@@ -46,12 +39,11 @@
         <button type="button" class="md-icon-button md-button md-ink-ripple" ng-show="$ctrl.allQuestionsList.length >= 1"  ng-disabled="createForm.$invalid" ng-click="$ctrl.saveDialog()" aria-label="Save"><md-icon md-font-icon="icon-check" class="md-font material-icons"></md-icon><md-tooltip><span translate="generic.save"></span></md-tooltip></button>
         <button type="button" class="md-icon-button md-button md-ink-ripple"  ng-click="$ctrl.createOrEdit=''" aria-label="Close dialog"><md-icon md-font-icon="icon-close" class="ng-scope ng-isolate-scope md-font icon-close material-icons" aria-hidden="true"></md-icon><md-tooltip><span translate="generic.close"></span></md-tooltip></button>
 
-        </span>
-      </div>
+         </md-toolbar >
 
-  </div>
+   
 
-  <md-content  scroll-glue="$ctrl.glued"  class="content app-detail" style="overflow-x: hidden">
+  <md-content  scroll-glue="$ctrl.glued"  flex layout-padding class="content app-detail" style="overflow-x: hidden">
 
 
 
@@ -162,7 +154,7 @@
           </div>
 
           <div flex="70" ng-if="question.type =='mcq'"   >
-            <div  class="row" layout-margin="20px">
+            <div layout-margin="20px">
               <md-input-container md-no-float class="md-block" >
                 <textarea md-maxlength="150" rows="1" md-select-on-focus ng-model="question.question.text" required name="questionMCQ_{{$index + 1}}" placeholder="{{'question.question'|translate}}">
                </textarea>
@@ -178,19 +170,18 @@
                 </div>
               </md-input-container>
               <div ng-repeat="option in question.question.options" class="adjust-top"  >
-                <md-input-container md-no-float  flex="40">
+                <md-input-container md-no-float  flex="40" style="padding-left: 0;">
                   <md-icon md-font-icon="icon-checkbox-blank-circle-outline" class="make-light" aria-label="Option"></md-icon>
-                  <textarea md-maxlength="150" rows="1" md-select-on-focus ng-model="option.optionText" placeholder="{{'question.option'|translate}}">
-
+                  <textarea   rows="1" md-select-on-focus ng-model="option.optionText" placeholder="{{'question.option'|translate}}">
                 </textarea>
                 </md-input-container>
-               <span>
-              <button ng-hide="question.question.options.length ===1 " ng-click="$ctrl.removeOption($parent.$index,option)"> <ng-md-icon icon="delete" style="fill: blank"></ng-md-icon></button>
-               </span>
+               
+              <md-button ng-hide="question.question.options.length ===1 " ng-click="$ctrl.removeOption($parent.$index,option)"> <ng-md-icon icon="delete" style="fill: blank"></ng-md-icon></md-button>
+               
               </div>
-              <md-button ng-click="$ctrl.addMoreOptions($index)" class="md-fab" aria-label="Eat cake">
-                <ng-md-icon icon="add_circle"></ng-md-icon>
-              </md-button>
+               <md-button style="top: -36px;" ng-click="$ctrl.addMoreOptions($index)" >
+                <ng-md-icon icon="add_box"></ng-md-icon>
+               </md-button>
 
             </div>
           </div>
@@ -217,11 +208,16 @@
                    </textarea>
                 </md-input-container>
                <span>
-              <button ng-hide="question.question.options.length ===1 " ng-click="$ctrl.removeOption($parent.$index,option)"><md-icon md-font-icon="icon-close"></md-icon></button>
+              <md-button ng-hide="question.question.options.length ===1 " ng-click="$ctrl.removeOption($parent.$index,option)">
+			  <ng-md-icon icon="delete" style="fill: blank"></ng-md-icon>
+			  </md-button>
                </span>
               </div>
-              <md-icon md-font-icon="icon-tooltip-outline-plus" title="Add Option" style="cursor: pointer;" ng-click="$ctrl.addMoreOptions($index)" aria-label="Option"></md-icon>
-
+			  <md-button style="top: -36px;" ng-click="$ctrl.addMoreOptions($index)">
+			  <ng-md-icon icon="add_box"></ng-md-icon>
+			  </md-button>
+			  
+ 
             </div>
           </div>
           <div flex="70" ng-if="question.type =='checkBox'"   >
@@ -247,11 +243,13 @@
                    </textarea>
                 </md-input-container>
                <span>
-              <button ng-hide="question.question.options.length ===1 " ng-click="$ctrl.removeOption($parent.$index,option)"><md-icon md-font-icon="icon-close"></md-icon></button>
+              <md-button ng-hide="question.question.options.length ===1 " ng-click="$ctrl.removeOption($parent.$index,option)"><ng-md-icon icon="delete" style="fill: blank"></ng-md-icon></md-button>
                </span>
               </div>
-              <md-icon md-font-icon="icon-tooltip-outline-plus" title="Add Option" style="cursor: pointer;" ng-click="$ctrl.addMoreOptions($index)" aria-label="Option"></md-icon>
-
+			   <md-button style="top: -36px;" ng-click="$ctrl.addMoreOptions($index)">
+			   <ng-md-icon icon="add_box"></ng-md-icon>
+			   </md-button>
+ 
             </div>
           </div>
           <div  flex="30" ng-show="$ctrl.isSelected(question)">
@@ -261,7 +259,7 @@
             </div>
             <!--<span class="md-title questionType">-->
             <!--</span>-->
-            <button type="button" class="md-icon-button md-button md-ink-ripple pull-right "    ng-click="vm.deleteQuestion(question)" aria-label="Delete"><ng-md-icon icon="delete" style="fill: blank"></ng-md-icon><md-tooltip><span translate="generic.delete"></span></md-tooltip></button>
+            <md-button type="button" class="md-icon-button md-button md-ink-ripple pull-right "    ng-click="$ctrl.deleteQuestion(question)" aria-label="Delete"><ng-md-icon icon="delete" style="fill: blank"></ng-md-icon><md-tooltip><span translate="generic.delete"></span></md-tooltip></md-button>
 
           </div>
 

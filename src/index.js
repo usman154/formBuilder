@@ -37,6 +37,10 @@ app.config(['$translateProvider', function ($translateProvider) {
       "specialChar":"Space, special characters, less than 3 and greater than 30 characters are not allowed in {{field}}",
       "specialWithSpaceChar":"{{field}} cannot have special characters",
     }
+	,
+	"generic" : {
+		"delete" : "Delete"
+	}
   });
 
 
