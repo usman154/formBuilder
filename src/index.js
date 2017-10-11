@@ -39,7 +39,8 @@ app.config(['$translateProvider', function ($translateProvider) {
     }
 	,
 	"generic" : {
-		"delete" : "Delete"
+		"delete" : "Delete",
+		"view" : "View"
 	}
   });
 

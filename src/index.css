@@ -8,3 +8,201 @@ body {
   border-left: 5px solid  rgb(255,87,34);;
   height: 100% !important;
 }
+.rad-pad2{
+  margin-left: 5px;
+}
+.rad-pad3{
+  margin-left: 4%;
+}
+.rat-div{
+  padding-bottom: 1%;
+}
+.req-sign{
+  color: red;
+  padding-left: 1%;
+}
+.rating-label{
+  text-align: -webkit-left;
+  padding-top: 2%;
+  padding-right: 2%;
+  padding-bottom: 2%;
+  padding-left: 2%;
+  width: 150px;
+  word-wrap: break-word;
+}
+.rating-label2{
+  margin-left: 3%;
+  text-align: -webkit-left;
+  padding-top: 2%;
+  padding-right: 2%;
+  padding-bottom: 2%;
+  padding-left: 2%;
+  width: 150px;
+  word-wrap: break-word;
+}
+h3{
+	font-family: Garamond;
+}
+
+.fabSpeedDialdemoBasicUsage .text-capitalize {
+  text-transform: capitalize; }
+.fabSpeedDialdemoBasicUsage .md-fab:hover, .fabSpeedDialdemoBasicUsage .md-fab.md-focused {
+  background-color: #000 !important; }
+.fabSpeedDialdemoBasicUsage p.note {
+  font-size: 1.2rem; }
+.fabSpeedDialdemoBasicUsage .lock-size {
+  min-width: 300px;
+  min-height: 300px;
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.custom{
+  z-index:1
+}
+.rad-pad{
+  padding: 1%;
+}
+/*.arrange{
+  float: left;
+  width: 100%;
+  -webkit-box-shadow: -2px 7px 3px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: -2px 7px 3px -6px rgba(0,0,0,0.75);
+  box-shadow: -2px 7px 3px -6px rgba(0,0,0,0.75);
+}*/
+.arrange2{
+  float: left;
+  width: 100%;
+}
+.custom-sides{
+  float: left;
+  width: 15%;
+  overflow-x: hidden;
+}
+.card {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  margin: 1rem;
+  margin-left: 5%;
+  margin-top: 40px;
+  position: relative;
+  width: 800px;
+}
+/*.card-4 {
+  -webkit-box-shadow: 0px 4px 9px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 4px 9px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 4px 9px 0px rgba(0,0,0,0.75);
+}*/
+.pull-right{
+  float: right;
+  padding-right: 15%;
+  padding-bottom: 5%;
+}
+/*.activated_div{
+  -webkit-box-shadow: 0px 1px 17px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 1px 17px -2px rgba(0,0,0,0.75);
+  box-shadow: 0px 1px 17px -2px rgba(0,0,0,0.75);
+  border-left: 5px solid  #4d90fe;
+  height: 100% !important;
+}*/
+
+.questionType{
+  background-color: gainsboro;
+  padding-left: 30%;
+  padding-top: 7%;
+  padding-bottom: 7%;
+  padding-right: 10%;
+  margin-left: 14%;
+}
+.make-light{
+  opacity: 0.3;
+}
+.adjust-top{
+  margin-top: -3%;
+}
+.nothing{
+  padding: 2%;
+}
+.top-pad{
+  padding-bottom: 5%;
+}
+.adjust-top_r{
+  margin-top: 0%;
+}
+.adjust-position{
+  float: right;
+  margin-right: 20px;
+}
+.simple-line{
+  opacity: 0.3;
+}
+.separator-div
+{
+  width: 95%;
+  float: right;
+}
+.margins{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 30%;
+}
+.custom-height{
+  height: 100px;
+background-image: url(https://cdn2.iconfinder.com/data/icons/flat-database/512/form-512.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.form-divs{
+  padding-left: 14%;
+  padding-top: 25%;
+}
+
+/**
+ * The dndDraggingSource class will be applied to
+ * the source element of a drag operation. It makes
+ * sense to hide it to give the user the feeling
+ * that he's actually moving it.
+ */
+.dndDraggingSource {
+  display: none;
+}
+
+.dndDragging {
+  display: block;
+}
+/**
+ * An element with .dndPlaceholder class will be
+ * added to the dnd-list while the user is dragging
+ * over it.
+ */
+.dndPlaceholder {
+  background-color: rgba(78, 78, 78, 0.56);
+  opacity: 0.5;
+  clear: both;
+  min-height: 250px;
+  list-style: none;
+
+}
+.override-default-menu
+{
+   
+}
+.red{
+  height: 3px;
+  border: solid 1px red;
+}
+.strech-png{
+
+}
+.green{
+
+}
+.orange{
+
+}
+.yellow{
+
+}
