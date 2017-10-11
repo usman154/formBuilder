@@ -2,7 +2,7 @@ angular
   .module('app')
   .component('app', {
     templateUrl: 'app/hello.html',
-    controller: function (questionnaireService,$mdSidenav) {
+    controller: function (questionnaireService,$mdSidenav, $mdDialog) {
 		var vm = this ;
 
     vm.hidden = false;
@@ -268,7 +268,7 @@ angular
           locals:{allQuestions: vm.allQuestionsList},
           controller: 'tempCtrl1',
           controllerAs : 'vm',
-          templateUrl: 'app/PCS/questionnaire/dialogBox/questionnairePopUp.html',
+          templateUrl: 'app/questionnairePopUp.html',
           clickOutsideToClose:true,
           fullscreen: false // Only for -xs, -sm breakpoints.
         })
