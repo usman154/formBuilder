@@ -26,3 +26,7 @@ This application is built using reference implementation of Google Material (Ang
     
     [![image.png](https://s1.postimg.org/23cgt4bpun/image.png)](https://postimg.org/image/2z8y8kleaj/)
 
+There is button with eye `icon` on the upper right side of the page. When question've been added to the form, the preview mode of the form can be seen clicking that `button` like
+
+[![image.png](https://s1.postimg.org/742dxqmhbz/image.png)](https://postimg.org/image/7i8tolus6z/)
+
